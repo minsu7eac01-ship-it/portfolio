@@ -1,0 +1,366 @@
+/* 워드프레스 Twenty Twenty-Four 스타일 참고 + 금융권 네이비 포인트 */
+
+/* ===== 색상·글꼴 (여기만 바꾸면 전체 분위기가 바뀝니다) ===== */
+:root {
+  --navy: #1b2a4a;        /* 메인 색 — 제목, 헤더 */
+  --accent: #b08d57;      /* 포인트 색 — 수상 배지, 강조선 */
+  --text: #2b2f36;        /* 본문 글자 */
+  --muted: #6b7280;       /* 보조 글자 (날짜, 기관) */
+  --line: #e5e7eb;        /* 구분선 */
+  --bg: #ffffff;          /* 기본 배경 */
+  --bg-alt: #f6f5f1;      /* 교차 배경 (자격증 섹션) */
+  --serif: "Noto Serif KR", serif;
+  --sans: "Noto Sans KR", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px; /* 고정 헤더에 제목이 가리지 않도록 */
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--bg);
+  word-break: keep-all; /* 한글 단어 중간에서 줄바꿈하지 않기 */
+}
+
+a {
+  color: var(--navy);
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== 헤더 ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(6px);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.brand {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* ===== 공통 섹션 ===== */
+section {
+  padding: 88px 0;
+}
+
+section.alt {
+  background: var(--bg-alt);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  color: var(--navy);
+  line-height: 1.35;
+}
+
+h2 {
+  margin: 0 0 40px;
+  font-size: 2rem;
+}
+
+/* ===== 소개 (히어로) ===== */
+.hero {
+  padding-top: 96px;
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--line), 0 8px 24px rgba(27, 42, 74, 0.12);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2.75rem;
+}
+
+.tagline {
+  margin: 4px 0 16px;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+}
+
+.contact a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact a:hover {
+  border-color: var(--navy);
+}
+
+.lead {
+  margin: 0 0 40px;
+  padding-left: 20px;
+  border-left: 3px solid var(--accent);
+  font-size: 1.1rem;
+}
+
+.strengths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.card {
+  padding: 28px;
+  background: var(--bg-alt);
+  border-radius: 4px;
+}
+
+.card h3 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ===== 자격증 표 ===== */
+.table-wrap {
+  overflow-x: auto; /* 좁은 화면에서는 표만 가로 스크롤 */
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+th, td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+  background: var(--bg);
+}
+
+td:first-child {
+  font-weight: 500;
+  color: var(--navy);
+}
+
+td:last-child,
+th:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: var(--bg-alt);
+}
+
+/* ===== 대외 활동 ===== */
+.activity {
+  position: relative;
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+}
+
+.activity:last-of-type {
+  border-bottom: 1px solid var(--line);
+}
+
+.activity h3 {
+  margin: 0 0 4px;
+  font-size: 1.3rem;
+}
+
+.activity .meta {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.activity p {
+  margin: 0 0 12px;
+}
+
+.activity ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.activity li {
+  margin-bottom: 6px;
+}
+
+.activity li::marker {
+  color: var(--accent);
+}
+
+/* 수상 활동 강조 */
+.activity.featured {
+  margin: 24px 0;
+  padding: 32px;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+}
+
+.activity.featured + .activity {
+  border-top: none;
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+/* ===== 푸터 ===== */
+.site-footer {
+  padding: 32px 0;
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* ===== 모바일 (화면 폭 640px 이하) ===== */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  nav {
+    gap: 16px;
+  }
+
+  section {
+    padding: 64px 0;
+  }
+
+  .hero-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .strengths {
+    grid-template-columns: 1fr;
+  }
+
+  .activity.featured {
+    padding: 24px 20px;
+  }
+
+  th, td {
+    padding: 12px 14px;
+  }
+}
